@@ -5,25 +5,30 @@
     @secondary-sat: saturation(@secondary-color);
     @primary-color: @config-primary-color;
     @secondary-color: @config-secondary-color;
-    @body-bg: hsl(@secondary-hue, min(20%, @secondary-sat), 10%);
-    @text-color: #ddd;
+    @body-bg: hsl(@secondary-hue, min(20%, @secondary-sat), 13%);
+    @text-color: #ccc;
     @link-color: saturate(@primary-color, 10%);
     @heading-color: @text-color;
     @muted-color: hsl(@secondary-hue, min(15%, @secondary-sat), 50%);
     @muted-more-color: hsl(@secondary-hue, min(10%, @secondary-sat), 40%);
     @shadow-color: rgba(0, 0, 0, 0.5);
-    @control-bg: hsl(@secondary-hue, min(20%, @secondary-sat), 13%);
+    @control-bg: hsl(@secondary-hue, min(20%, @secondary-sat), 18%);
     @control-color: @muted-color;
     @control-danger-bg: #411;
     @control-danger-color: #a88;
-    @overlay-bg: fade(darken(@body-bg, 5%), 90%);
+    @overlay-bg: fade(darken(@body-bg, 5%), 95%);
     @code-bg: darken(@body-bg, 3%);
     @code-color: #fff;
-    @header-bg: @body-bg;
+    @header-bg: @control-bg;
     @header-color: @primary-color;
     @header-control-bg: @control-bg;
     @header-control-color: @control-color;
     @hero-bg: @control-bg;
+
+    @control-bg-l: hsl(@secondary-hue, min(20%, @secondary-sat), 23%);
+    @header-control-bg-l: @control-bg-l;
+
+
     background: @body-bg;
     color: @text-color;
 }
@@ -104,7 +109,7 @@ body.dark {
 
     .App-header {
         & when (@config-colored-header =true) {
-            .light-contents(@header-color, @header-control-bg, @header-control-color);
+            .light-contents(@header-color, @header-control-bg-l, @header-control-color);
         }
     }
 
@@ -144,7 +149,7 @@ body.dark {
     }
 
     .Button {
-        .Button--color(@control-color, @control-bg);
+        .Button--color(@control-color, @control-bg-l);
     }
 
     .Button--primary {
@@ -177,11 +182,11 @@ body.dark {
     }
 
     .TextEditor-controls {
-        border-top: 1px solid @control-bg;
+        border-top: 1px solid @control-bg-l;
     }
 
     .ReplyPlaceholder {
-        border: 2px dashed @control-bg;
+        border: 2px dashed @control-bg-l;
         color: @muted-color;
     }
 
@@ -244,24 +249,24 @@ body.dark {
             > a,
             > button {
                 &:hover {
-                    background: @control-bg;
+                    background: @control-bg-l;
                 }
             }
 
             @media (max-width: @screen-tablet-max) {
                 > button {
-                    background: @control-bg;
+                    background: @control-bg-l;
                 }
 
                 > a {
-                    background: @control-bg;
+                    background: @control-bg-l;
                 }
             }
 
             &.active {
                 > a,
                 > button {
-                    background: @control-bg;
+                    background: @control-bg-l;
                 }
             }
         }
@@ -417,11 +422,11 @@ body.dark {
 
     .DiscussionListItem {
         &:hover {
-            background: mix(@control-bg, @body-bg, 50%);
+            background: mix(@control-bg-l, @body-bg, 50%);
         }
 
         &.active {
-            background: @control-bg;
+            background: @control-bg-l;
         }
     }
 
@@ -515,11 +520,11 @@ body.dark {
     .SelectTagList {
         > li {
             &.pinned + li:not(.pinned) {
-                border-top: 2px solid @control-bg;
+                border-top: 2px solid @control-bg-l;
             }
 
             &.active {
-                background: @control-bg;
+                background: @control-bg-l;
             }
         }
     }
